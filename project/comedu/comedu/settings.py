@@ -9,6 +9,9 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
+#admin ID : comedu
+#admin PW : 1234
+
 
 import os
 
@@ -37,10 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'comeduwiki.apps.comeduuikiConfig',
-    'graduate.apps.graduateConfig',
-    'todolist.apps.todolistConfig',
-    'board.apps.boardConfig',
+    'comeduwiki.apps.ComeduwikiConfig',
+    'graduate.apps.GraduateConfig',
+    'todolist.apps.TodolistConfig',
+    'board.apps.BoardConfig',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +125,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_DIRS = [os.path.join(BASE_DIR, 'static')]
