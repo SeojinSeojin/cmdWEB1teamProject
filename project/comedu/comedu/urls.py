@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', board.views.main, name='main'),
     path('board/', board.views.board_main, name='board'),
     path('board/<int:post_id>', board.views.board_detail, name='detail'),
     path('board/new/', board.views.board_new, name='newPost'),

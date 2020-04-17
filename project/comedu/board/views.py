@@ -3,6 +3,12 @@ from .models import Post
 
 # Create your views here.
 
+
+### 전체 메인 페이지 ###
+def main(req):
+    return render(req, 'index.html')
+
+
 ### 게시글들의 제목과 작성자가 쭈욱 나와있는 main페이지 ###
 
 
