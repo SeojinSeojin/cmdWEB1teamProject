@@ -7,9 +7,21 @@ from django.utils import timezone
 class Post(models.Model):
     # User관리는 조금더 공부 후에 추가할 예정
     #writer = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+
+    genre_choices = [
+        ("C", "C"),
+        ("C++", "C++"),
+        ("Python", "Python"),
+        ("Javacript", "Javascript"),
+        ("R", "R"),
+        ("Others", "Others"),
+        ("Text", "Text")
+    ]
+
     title = models.CharField(max_length=200)
     text = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
+    genre = models.CharField(max_length=10, choices=genre_choices)
 
     def __str__(self):
         return self.title

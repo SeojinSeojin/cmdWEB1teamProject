@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.utils import timezone
 from .models import Post
 
 # Create your views here.
@@ -30,7 +31,16 @@ def board_new(req):
     return render(req, 'board_new.html')
 
 ### 새 글을 db에 저장하는 함수 ###
-# def board_create(req):
 
-### 글을 수정한 후 db에 저장하는 함수. 권한 관련된 문제라 나중에 손 댈 것! ###
+
+def board_create(req):
+    post = Post()
+    post.title = req.GET['title']
+    post.text = req.GET['text']
+    post.genre = req.GET['genre']
+    post.pub_date = timezone.datetime.now()
+    post.save()
+    return redirect("/board/"+str(post.id))
+
+### 글을 수정한 후 db에 저장하는 함수. ###
 # def board_modify(req, 지금로그인한아이디):
