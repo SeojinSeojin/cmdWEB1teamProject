@@ -12,6 +12,9 @@
     <div>{{post.pub_date}}</div>
     <div>{{post.genre}}</div>
     <div>{{post.text}}</div>
+    <div class="delete">
+        <button onclick="location.href='{% url 'delete' post.id %}'">삭제하기</button>
+    </div>
 </body>
 
 </html>

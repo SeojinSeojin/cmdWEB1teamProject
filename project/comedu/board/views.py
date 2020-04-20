@@ -42,5 +42,11 @@ def board_create(req):
     post.save()
     return redirect("/board/"+str(post.id))
 
+
+def board_delete(req, post_id):
+    post = Post.objects.get(id=post_id)
+    post.delete()
+    return redirect("/board/")
+
 ### 글을 수정한 후 db에 저장하는 함수. ###
 # def board_modify(req, 지금로그인한아이디):
