@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 import board.views
+import graduate.views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -27,4 +28,5 @@ urlpatterns = [
     path('board/<int:post_id>/delete', board.views.board_delete, name='delete'),
     path('board/new/', board.views.board_new, name='newPost'),
     path('board/create/', board.views.board_create, name='create'),
+    path('graduate/', include('graduate.urls')),
 ]

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>졸업요건 계산기</title>
+</head>
+<body>
+    <form action="cal/calculate" method="post">{% csrf_token %}
+        <p>전공필수</p>
+        <ul>
+            <li><input type="checkbox" name="major_req[]" value="기본프로그래밍"> 기본프로그래밍</li>
+            <li><input type="checkbox" name="major_req[]" value="컴퓨터교육개론"> 컴퓨터교육개론</li>
+            <li><input type="checkbox" name="major_req[]" value="자료구조"> 자료구조</li>
+            <li><input type="checkbox" name="major_req[]" value="데이타베이스"> 데이타베이스</li>
+            <li><input type="checkbox" name="major_req[]" value="컴퓨터구조"> 컴퓨터구조</li>
+            <li><input type="checkbox" name="major_req[]" value="운영체제"> 운영체제</li>
+            <li><input type="checkbox" name="major_req[]" value="컴퓨터네트워크"> 컴퓨터네트워크</li>
+            <li><input type="checkbox" name="major_req[]" value="프로그래밍언어론"> 프로그래밍언어론
+            </li>
+        </ul>
+        <br>
+        <p>지금까지 수강한 전공일반 학점을 입력해주세요 <input type="number" name="major_gen" value="전공일반"></p>
+        <br>
+        <p>교직</p>
+        <ul>
+            <p>------ 이중 6개 이수 ------</p>
+            <li><input type="checkbox" name="teach[]" value="교육학개론"> 교육학개론</li>
+            <li><input type="checkbox" name="teach[]" value="교육의역사.철학적이해"> 교육의역사.철학적이해</li>
+            <li><input type="checkbox" name="teach[]" value="교육의사회학적이해"> 교육의사회학적이해</li>
+            <li><input type="checkbox" name="teach[]" value="교육의심리학적이해"> 교육의심리학적이해</li>
+            <li><input type="checkbox" name="teach[]" value="교육과정"> 교육과정</li>
+            <li><input type="checkbox" name="teach[]" value="교육평가"> 교육평가</li>
+            <li><input type="checkbox" name="teach[]" value="교육방법및교육공학"> 교육방법및교육공학</li>
+            <li><input type="checkbox" name="teach[]" value="교육행정및교육경영"> 교육행정및교육경영</li>
+            <p>------ 전부이수해야됨 ------</p>
+            <li><input type="checkbox" name="teach[]" value="특수교육학개론"> 특수교육학개론</li>
+            <li><input type="checkbox" name="teach[]" value="교직실무"> 교직실무</li>
+            <li><input type="checkbox" name="teach[]" value="학교폭력예방및학생의이해"> 학교폭력예방및학생의이해</li>
+            <li><input type="checkbox" name="teach[]" value="교육실습"> 교육실습</li>
+            <li><input type="checkbox" name="teach[]" value="교육봉사활동"> 교육봉사활동</li>
+        </ul>
+        <br>
+        <p>지금까지 수강한 교양 학점을 입력해주세요 <input type="number" name="elective" value="교양"></p>
+        <input type="submit" value="Submit!!">
+    </form>
+    
+</body>
+</html>

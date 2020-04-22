@@ -1,4 +1,4 @@
-#!c:\web1project\cmdweb1teamproject\project\myvenv\scripts\python.exe
+#!c:\web1project\cmdweb1teamproject\virtual\scripts\python.exe
 from django.core import management
 
 if __name__ == "__main__":
