@@ -26,6 +26,8 @@ urlpatterns = [
     path('board/', board.views.board_main, name='board'),
     path('board/<int:post_id>', board.views.board_detail, name='detail'),
     path('board/<int:post_id>/delete', board.views.board_delete, name='delete'),
+    path('board/<int:post_id>/edit', board.views.board_edit, name='edit'),
+    path('board/<int:post_id>/update', board.views.board_update, name='update'),
     path('board/new/', board.views.board_new, name='newPost'),
     path('board/create/', board.views.board_create, name='create'),
     path('graduate/', include('graduate.urls')),

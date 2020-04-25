@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ComEdu Board - Update</title>
+</head>
+
+<form method="post" action='{% url "update" post.id %}'>
+    {% csrf_token %}
+    <div class="new_title">
+        <h4>제목</h4>
+        <input type="text" name='title' placeholder='제목' value={{post.title}}>
+    </div>
+    <div class="new_genre">
+        <h4>언어 타입</h4>
+        <input type="radio" name='genre' value="C"><font>C</font>
+        <input type="radio" name='genre' value="C++"><font>C++</font>
+        <input type="radio" name='genre' value="Python"><font>Python</font>
+        <input type="radio" name='genre' value="Javascript"><font>Javascript</font>
+        <input type="radio" name='genre' value="R"><font>R</font>
+        <input type="radio" name='genre' value="Others"><font>Others</font>
+        <input type="radio" name='genre' value="Text"><font>Text</font>
+    </div>
+
+    <div class="new_text">
+        <h4>본문</h4>
+        <textarea name='text' placeholder='내용'>{{post.text}}</textarea>
+    </div>
+    <input type="submit" value="수정하기">
+</form>
+
+</html>

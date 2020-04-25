@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
+from django.views.decorators.csrf import csrf_exempt
 from .models import Post
 
 # Create your views here.
@@ -26,12 +27,10 @@ def board_detail(req, post_id):
 
 ### 글쓰기 창을 띄우는 페이지 ###
 
-
 def board_new(req):
     return render(req, 'board_new.html')
 
 ### 새 글을 db에 저장하는 함수 ###
-
 
 def board_create(req):
     post = Post()
@@ -42,11 +41,26 @@ def board_create(req):
     post.save()
     return redirect("/board/"+str(post.id))
 
+### 글을 삭제하는 함수 ###
 
 def board_delete(req, post_id):
     post = Post.objects.get(id=post_id)
     post.delete()
     return redirect("/board/")
 
+def board_edit(req, post_id):
+    blog_previous = get_object_or_404(Post, pk=post_id)
+    return render(req, "board_edit.html", {'post':blog_previous})
+
 ### 글을 수정한 후 db에 저장하는 함수. ###
-# def board_modify(req, 지금로그인한아이디):
+@csrf_exempt
+def board_update(req, post_id):
+    post = Post.objects.get(pk=post_id)
+    if req.method == 'POST':
+        post.title = req.POST.get('title', '')
+        post.text = req.POST.get('text', '')
+        post.genre = req.POST.get('genre', '')
+        post.save()
+        return redirect(f"/board/{post.id}")
+
+    return render(req, "board_main.html")

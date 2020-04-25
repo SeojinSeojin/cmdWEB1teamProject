@@ -21,6 +21,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     text = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
+    edit_date = models.DateTimeField(auto_now=True, blank=True, null=True)
     genre = models.CharField(max_length=10, choices=genre_choices)
 
     def __str__(self):
