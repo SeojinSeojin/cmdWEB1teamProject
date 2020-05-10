@@ -1,15 +1,14 @@
 from django.contrib import admin
 from . import models
 
-# Register your models here.
 
 @admin.register(models.Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = (
         "title",
         "genre",
-        "pub_date",
-        "edit_date",
+        "onlyMonthDay",
+        "writer",
     )
 
     list_filter = ("genre",)

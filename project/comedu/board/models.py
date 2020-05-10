@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from users import models as user_models
 
 # Create your models here.
 
@@ -23,6 +24,7 @@ class Post(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
     edit_date = models.DateTimeField(auto_now=True, blank=True, null=True)
     genre = models.CharField(max_length=10, choices=genre_choices)
+    writer = models.ForeignKey(user_models.User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -32,3 +34,4 @@ class Post(models.Model):
         day = self.pub_date.strftime("%d")
         monthDay = str(month) + "/" + str(day)
         return monthDay
+    onlyMonthDay.short_description = "pub month/day"
