@@ -27,10 +27,12 @@ def board_detail(req, post_id):
 
 ### 글쓰기 창을 띄우는 페이지 ###
 
+
 def board_new(req):
     return render(req, 'board_new.html')
 
 ### 새 글을 db에 저장하는 함수 ###
+
 
 def board_create(req):
     post = Post()
@@ -38,19 +40,22 @@ def board_create(req):
     post.text = req.GET['text']
     post.genre = req.GET['genre']
     post.pub_date = timezone.datetime.now()
+    post.writer = req.user
     post.save()
     return redirect("/board/"+str(post.id))
 
 ### 글을 삭제하는 함수 ###
+
 
 def board_delete(req, post_id):
     post = Post.objects.get(id=post_id)
     post.delete()
     return redirect("/board/")
 
+
 def board_edit(req, post_id):
     blog_previous = get_object_or_404(Post, pk=post_id)
-    return render(req, "board_edit.html", {'post':blog_previous})
+    return render(req, "board_edit.html", {'post': blog_previous})
 
 ### 글을 수정한 후 db에 저장하는 함수. ###
 @csrf_exempt

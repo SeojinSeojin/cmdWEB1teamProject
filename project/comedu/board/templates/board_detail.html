@@ -9,16 +9,19 @@
     <div>
         <h1>{{post.title}}</h1>
     <div>
-    <div>{{post.pub_date}}</div>
+    <div>작성 일자 : {{post.pub_date}}</div>
+    <div>작성자 {{post.writer}}</div>
     <div>{{post.genre}}</div>
     <div>{{post.text}}</div>
+
+    {% if post.writer == user %}
     <div class="delete">
         <button onclick="location.href='{% url 'delete' post.id %}'">삭제하기</button>
     </div>
     <div class="edit">
         <button onclick="location.href='{% url 'edit' post.id %}'">수정하기</button>
     </div>
-
+    {% endif %}
     <button onclick="location.href='{% url 'board' %}'">홈으로</button>
 </body>
 
