@@ -26,7 +26,7 @@
       margin:5px;
     }
     .bg-info{
-      padding:20px;
+      padding:10px;
       margin:5px;
     }
     .bg-primary{
@@ -46,39 +46,61 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 bg-primary" style="margin-top: 50px;margin-bottom : 10px">
+        <div class="col-lg-12 bg-primary" style="margin-top:50px; margin-bottom : 10px">
             <h1 class="text-uppercase text-center test-muted">
                 TITLE</h1>
         </div>
       </div>
-      <div class="row">
+        <div class="row">
             <ul class="nav nav-tabs">
                 <li roles="presentation"><a href="#">HOME</a></li>
                 <li roles="presentation"><a href="#">QNA</a></li>
                 <li roles="presentation"><a href="#">WIKI</a></li>
                 <li roles="presentation"><a href="#">졸업요건</a></li>
-                <li roles="presentation"><a href="#">TODOLIST</a></li>
             </ul> 
         </div>
-      <div class="row" style="margin-top: 30px;margin-bottom : 30px">
-        <div class="col-lg-3"></div>
-        <div class="col-lg-6 bg-info">
-            <div class="form-group">
-              <label for="exampleInputId" class="control-label">아이디</label>
-              <input type="Id" class="form-control" id="exampleInputId" placeholder="아이디를 입력하세요">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">암호</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="암호를 입력하세요">
-            </div>
-            <div class="form-group">
-              <div class="btn btn-default pull-right" style="margin-top:10px; width:100px;">Login</div>
-            </div>
-            <div class="form-group">
-              <div class="btn btn-primary pull-left" style="margin-top:10px; width:100px;">Sign In</div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row bg-info" style="padding-left:20px;">
+                    <h4><strong>회원가입</strong></h4>
+                </div>
+                <div class="row" style="padding: 20px;">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                          <label for="inputName" class="col-lg-3 control-label">이름</label>
+                          <div class="col-lg-9">
+                            <input type="name" class="form-control" id="inputName" placeholder="이름"style="width:600px;">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="inputId" class="col-lg-3 control-label">아이디</label>
+                          <div class="col-lg-9">
+                            <input type="id" class="form-control" id="inputId" placeholder="아이디"style="width:600px;">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="inputPassword" class="col-lg-3 control-label">비밀번호</label>
+                          <div class="col-lg-9">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="비밀번호"style="width:600px;">
+                          </div>
+                        </div>
+                          <div class="form-group">
+                            <label for="inputPasswordAgain" class="col-lg-3 control-label">비밀번호 확인</label>
+                            <div class="col-lg-9">
+                              <input type="passwordAgain" class="form-control" id="inputPasswordAgain" placeholder="비밀번호 확인"style="width:600px;">
+                            </div>
+                          </div>
+  
+                        <div class="form-group">
+                          <div class="col-lg-offset-9 col-lg-3">
+                            <button type="submit" class="btn btn-default"style="width:100px;" >Sign in</button>
+                          </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-      </div>
+         
       <div class="row">
         <div class="col-lg-12 bg-primary text-center">
           <p>하단정보</p>
