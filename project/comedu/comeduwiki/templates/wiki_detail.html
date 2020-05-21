@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wiki - {{wiki.title}}</title>
+</head>
+
+<body>
+    <div>
+        <h1>{{wiki.title}}</h1>
+    <div>
+    <div>최종 작성 일자 : {{wiki.onlyMonthDay}}</div>
+    <div>최초 작성자 : {{wiki.writer}}</div>
+    <div>{{wiki.text}}</div>
+
+    {% if wiki.writer == user %}
+    <div class="delete">
+        <button onclick="location.href='{% url 'delete' wiki.id %}'">삭제하기</button>
+    </div>
+    {% endif %}
+    <div class="edit">
+        <button onclick="location.href='{% url 'edit' wiki.id %}'">수정하기</button>
+    </div>
+    <button onclick="location.href='{% url 'wiki' %}'">홈으로</button>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ComEdu Wiki</title>
+    <style>
+    table{
+        width:80%;   
+    }
+    td{
+        border:2px solid black;
+        height:50px;
+        font-size:25px;
+    }
+    </style>
+</head>
+
+<body>
+    <h2>Com Edu Wiki!<h2>
+    <button onclick="location.href='{% url 'newwiki' %}'">글쓰기</button>
+    <table>
+    <tr>
+        <td>title</td>
+        <td>last-updateddate</td>
+    </tr>
+    {% for wiki in wiki.all %}
+    <tr>
+        <td onClick = "location.href='{% url 'detail' wiki.id %}'">{{ wiki.title }}</td>
+        <td>{{ wiki.onlyMonthDay }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+</body>
+
+</html>

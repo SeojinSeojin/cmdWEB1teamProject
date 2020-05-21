@@ -3,7 +3,7 @@ from . import models
 
 
 @admin.register(models.Wiki)
-class PostAdmin(admin.ModelAdmin):
+class WikiAdmin(admin.ModelAdmin):
     list_display = (
         "title",
         "text",
