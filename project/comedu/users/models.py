@@ -4,17 +4,22 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
+
 class User(AbstractUser):
 
-    email = models.EmailField(verbose_name = "email", max_length = 255, unique = True)
+    email = models.EmailField(verbose_name="email",
+                              max_length=255, unique=True)
     # FIXME : studentID는 unique한데, superuser 또한 이 model에 들어가므로
     # 두번째 superuser 만들때 studentID 중복문제 발생(공백으로)
-    studentID = models.CharField(max_length=10, unique = True)
+    studentID = models.CharField(
+        max_length=10, unique=True, blank=True, null=True)
 
-    avatar = models.ImageField(blank=True)
-    bio = models.TextField(blank=True)
+    avatar = models.ImageField(blank=True, null=True)
+    bio = models.TextField(blank=True, null=True, default='')
     birthdate = models.DateField(blank=True, null=True)
-    superhost = models.BooleanField(default=False)
+    superhost = models.BooleanField(default=False, null=True)
 
     def __str__(self):
         return f"{self.studentID} | {self.username}"
+
+    REQUIRED_FIELDS = ['email', 'studentID']
