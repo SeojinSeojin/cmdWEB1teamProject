@@ -4,45 +4,172 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>졸업요건 계산기</title>
+    <style>
+        ul li {
+            list-style-type: none; 
+            width: 220px;
+            height: 20px;
+            float: left;
+            margin: 0 5px 0 5px;
+            }
+    </style>
 </head>
-<body>
+<body style="padding-left: 20px">
     <form action="cal/calculate" method="post">{% csrf_token %}
-        <p>전공필수</p>
+        <h2 style="font-weight: bold; font-size:x-large;"> 필수과목 </h2>
+
+        <p style="font-weight: bold; font-size: large;">전공필수 (기본이수과목)</p>
         <ul>
-            <li><input type="checkbox" name="major_req[]" value="기본프로그래밍"> 기본프로그래밍</li>
-            <li><input type="checkbox" name="major_req[]" value="컴퓨터교육개론"> 컴퓨터교육개론</li>
-            <li><input type="checkbox" name="major_req[]" value="자료구조"> 자료구조</li>
-            <li><input type="checkbox" name="major_req[]" value="데이타베이스"> 데이타베이스</li>
-            <li><input type="checkbox" name="major_req[]" value="컴퓨터구조"> 컴퓨터구조</li>
-            <li><input type="checkbox" name="major_req[]" value="운영체제"> 운영체제</li>
-            <li><input type="checkbox" name="major_req[]" value="컴퓨터네트워크"> 컴퓨터네트워크</li>
-            <li><input type="checkbox" name="major_req[]" value="프로그래밍언어론"> 프로그래밍언어론
+            <li><input type="checkbox" name="major_req[]" value="기본프로그래밍"> 기본프로그래밍 </li>
+            <li><input type="checkbox" name="major_req[]" value="컴퓨터교육개론"> 컴퓨터교육개론 </li>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="major_req[]" value="자료구조"> 자료구조 </li>
+            <li><input type="checkbox" name="major_req[]" value="데이타베이스"> 데이타베이스 </li>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="major_req[]" value="컴퓨터구조"> 컴퓨터구조 </li>
+            <li><input type="checkbox" name="major_req[]" value="운영체제"> 운영체제 </li>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="major_req[]" value="컴퓨터네트워크"> 컴퓨터네트워크 </li>
+            <li><input type="checkbox" name="major_req[]" value="프로그래밍언어론"> 프로그래밍언어론 
             </li>
         </ul>
         <br>
-        <p>지금까지 수강한 전공일반 학점을 입력해주세요 <input type="number" name="major_gen" value="전공일반"></p>
+
+        <p style="font-weight: bold; font-size: large;">전공일반 (기본이수과목)</p>
+        <ul>
+            <li style="width : 100px"><input type="checkbox" name="major_1[]" value="알고리즘"> 알고리즘 </li>
+            <li style="width : 100px"><input type="checkbox" name="major_1[]" value="인공지능"> 인공지능 </li>
+            <li><input type="checkbox" name="major_1[]" value="소프트웨어공학"> 소프트웨어공학 </li>
+        </ul>
         <br>
-        <p>교직</p>
+
+        <p style="font-weight: bold; font-size: large;">교과교육영역</p>
+        <ul>
+            <li><input type="checkbox" name="major_edu[]" value="컴퓨터교과교육론"> 컴퓨터교과교육론 </li>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="major_edu[]" value="컴퓨터교재연구및지도법"> 컴퓨터교재연구및지도법 </li>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="major_edu[]" value="상업,정보교과논리논술"> 상업,정보교과논리논술 </li>
+        </ul>
+        
+        <br>
+        <p style="font-weight: bold; font-size: large;">전공일반</p>
+        <ul>
+            <li><input type="checkbox" name="major_2[]" value="3"> 인터넷윤리 </li>
+            <li><input type="checkbox" name="major_2[]" value="3"> Soical Learning과 인터넷 </li>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="major_2[]" value="3"> 리눅스시스템 </li>
+            <li><input type="checkbox" name="major_2[]" value="3"> 객체지향프로그래밍 </li>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="major_2[]" value="3"> 교육용멀티미디어 </li>
+            <li><input type="checkbox" name="major_2[]" value="3"> 논리회로 </li>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="major_2[]" value="3"> 데이터통신기술 </li>
+            <li><input type="checkbox" name="major_2[]" value="3"> 피지컬컴퓨팅 </li>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="major_2[]" value="3"> 컴퓨터교육과정론 </li>
+            <li><input type="checkbox" name="major_2[]" value="3"> 컴퓨터수업설계및연습 </li>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="major_2[]" value="3"> e러닝의이해 </li>
+            <li><input type="checkbox" name="major_2[]" value="3"> 가상및증강현실처리 </li>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="major_2[]" value="3"> 객체지향소프트웨어개발 </li>
+            <li><input type="checkbox" name="major_2[]" value="3"> 교육용소프트웨어개발 </li>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="major_2[]" value="3"> 모바일프로그래밍입문 </li>
+            <li><input type="checkbox" name="major_2[]" value="3"> 수업과소프트웨어활용 </li>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="major_2[]" value="3"> 컴파일러 </li>
+            <li><input type="checkbox" name="major_2[]" value="3"> 컴퓨터교과과정개발 </li>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="major_2[]" value="3"> 컴퓨터그래픽스 </li>
+            <li><input type="checkbox" name="major_2[]" value="3"> 컴퓨터비전프로그래밍 </li>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="major_2[]" value="3"> 클라우드컴퓨팅개론 </li>
+            <li><input type="checkbox" name="major_2[]" value="3"> 네트워크운영관리 </li>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="major_2[]" value="3"> 정보시스템 </li>
+            <li><input type="checkbox" name="major_2[]" value="3"> 컴퓨터교육세미나 </li>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="major_2[]" value="3"> 컴퓨터보안 </li>
+            <li><input type="checkbox" name="major_2[]" value="1"> 사도의함양 </li>
+        </ul>
+        <br>
+        <p style="font-weight: bold; font-size: large;">교직</p>
         <ul>
             <p>------ 이중 6개 이수 ------</p>
             <li><input type="checkbox" name="teach[]" value="교육학개론"> 교육학개론</li>
             <li><input type="checkbox" name="teach[]" value="교육의역사.철학적이해"> 교육의역사.철학적이해</li>
+            <div style="height: 30px;"></div>
             <li><input type="checkbox" name="teach[]" value="교육의사회학적이해"> 교육의사회학적이해</li>
             <li><input type="checkbox" name="teach[]" value="교육의심리학적이해"> 교육의심리학적이해</li>
+            <div style="height: 30px;"></div>
             <li><input type="checkbox" name="teach[]" value="교육과정"> 교육과정</li>
             <li><input type="checkbox" name="teach[]" value="교육평가"> 교육평가</li>
+            <div style="height: 30px;"></div>
             <li><input type="checkbox" name="teach[]" value="교육방법및교육공학"> 교육방법및교육공학</li>
             <li><input type="checkbox" name="teach[]" value="교육행정및교육경영"> 교육행정및교육경영</li>
+            <div style="height: 30px;"></div>
             <p>------ 전부이수해야됨 ------</p>
             <li><input type="checkbox" name="teach[]" value="특수교육학개론"> 특수교육학개론</li>
             <li><input type="checkbox" name="teach[]" value="교직실무"> 교직실무</li>
+            <div style="height: 30px;"></div>
             <li><input type="checkbox" name="teach[]" value="학교폭력예방및학생의이해"> 학교폭력예방및학생의이해</li>
             <li><input type="checkbox" name="teach[]" value="교육실습"> 교육실습</li>
+            <div style="height: 30px;"></div>
             <li><input type="checkbox" name="teach[]" value="교육봉사활동"> 교육봉사활동</li>
         </ul>
         <br>
-        <p>지금까지 수강한 교양 학점을 입력해주세요 <input type="number" name="elective" value="교양"></p>
-        <input type="submit" value="Submit!!">
+        <p style="font-weight: bold; font-size: large;">교양</p>
+        <p>수강한 교양과목의 총학점을 입력하세요!</p>
+        <input type="number" name = "general" value="교양">
+        <!--
+        <ul>
+            <p style="float: left; margin: 0 0 0 0; font-weight: bold;">- 인성 (성균논어) </p>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="general[]" value="성균논어"> 수강했을 경우 체크 </li>
+            <div style="height: 50px;"></div>
+            <p style="float: left; margin: 0 0 0 0; font-weight: bold;">- 리더십 </p>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="general[]" value="리더십"> 수강했을 경우 체크 </li>
+            <div style="height: 50px;"></div>
+            <p style="float: left; margin: 0 0 0 0; font-weight: bold;">- 의사소통 (수강한 과목 개수 입력) </p>
+            <div style="height: 30px;"></div>
+            <li style="width: 60px;"><input type="checkbox" name="general[]" value="의0"> 0개 </li>
+            <li style="width: 60px;"><input type="checkbox" name="general[]" value="의1"> 1개 </li>
+            <li><input type="checkbox" name="general[]" value="의2"> 2개 </li>
+            <div style="height: 50px;"></div>
+            <p style="float: left; margin: 0 0 0 0; font-weight: bold;">- 창의와사유 </p>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="general[]" value="창의와사유"> 수강했을 경우 체크 </li>
+            <div style="height: 50px;"></div>
+            <p style="float: left; margin: 0 0 0 0; font-weight: bold;">- 소프트웨어기초 </p>
+            <div style="height: 30px;"></div>
+            <li style="width: 200px;"><input type="checkbox" name="general[]" value="컴사"> 컴퓨팅사고와SW코딩 </li>
+            <li><input type="checkbox" name="general[]" value="문알"> 문제해결과알고리즘 </li>
+            <div style="height: 50px;"></div>
+            <p style="float: left; margin: 0 0 0 0; font-weight: bold;">- 기본영어 </p>
+            <div style="height: 30px;"></div>
+            <li style="width: 200px;"><input type="checkbox" name="general[]" value="영쓰"> 영어쓰기 </li>
+            <li><input type="checkbox" name="general[]" value="영발"> 영어발표 </li>
+            <div style="height: 50px;"></div>
+            <p style="float: left; margin: 0 0 0 0; font-weight: bold;">- 전문영어, 글로벌문화) </p>
+            <div style="height: 30px;"></div>
+            <li><input type="checkbox" name="general[]" value="고급영어"> 수강했을 경우 체크 </li>
+            <div style="height: 50px;"></div>
+            <p style="float: left; margin: 0 0 0 0; font-weight: bold;">- 의사소통 (수강한 과목 개수 입력) </p>
+            <div style="height: 30px;"></div> 
+            <li style="width: 60px;"><input type="checkbox" name="general[]" value="의0"> 0개 </li>
+            <li style="width: 60px;"><input type="checkbox" name="general[]" value="의1"> 1개 </li>
+            <li style="width: 60px;"><input type="checkbox" name="general[]" value="의1"> 1개 </li>
+            <li style="width: 60px;"><input type="checkbox" name="general[]" value="의1"> 1개 </li>
+            <li><input type="checkbox" name="general[]" value="의2"> 2개 </li>
+            <div style="height: 50px;"></div>
+            
+        </ul>-->
+        <br><br>
+        <input type="submit" value="Submit!!" style="width: 200px; height: 50px;">
+
     </form>
     
 </body>
