@@ -55,7 +55,6 @@ def wiki_edit(req, wiki_id):
 def wiki_update(req, wiki_id):
     wiki = Wiki.objects.get(pk=wiki_id)
     if req.method == 'POST':
-        wiki.title = req.POST.get('title', '')
         wiki.text = req.POST.get('text', '')
         wiki.save()
         return redirect(f"/wiki/{wiki.id}")

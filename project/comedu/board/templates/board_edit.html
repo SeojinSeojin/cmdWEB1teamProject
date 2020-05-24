@@ -5,7 +5,7 @@
     <title>ComEdu Board - Update</title>
 </head>
 
-<form method="post" action='{% url "update" post.id %}'>
+<form method="post" action='{% url "board:update" post.id %}'>
     {% csrf_token %}
     <div class="new_title">
         <h4>제목</h4>

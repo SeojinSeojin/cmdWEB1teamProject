@@ -15,13 +15,13 @@
 
     {% if wiki.writer == user %}
     <div class="delete">
-        <button onclick="location.href='{% url 'delete' wiki.id %}'">삭제하기</button>
+        <button onclick="location.href='{% url 'wiki:delete' wiki.id %}'">삭제하기</button>
     </div>
     {% endif %}
     <div class="edit">
-        <button onclick="location.href='{% url 'edit' wiki.id %}'">수정하기</button>
+        <button onclick="location.href='{% url 'wiki:edit' wiki.id %}'">수정하기</button>
     </div>
-    <button onclick="location.href='{% url 'wiki' %}'">홈으로</button>
+    <button onclick="location.href='{% url 'wiki:wiki' %}'">홈으로</button>
 </body>
 
 </html>

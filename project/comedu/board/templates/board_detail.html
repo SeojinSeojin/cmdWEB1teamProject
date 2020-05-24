@@ -16,13 +16,13 @@
 
     {% if post.writer == user %}
     <div class="delete">
-        <button onclick="location.href='{% url 'delete' post.id %}'">삭제하기</button>
+        <button onclick="location.href='{% url 'board:delete' post.id %}'">삭제하기</button>
     </div>
     <div class="edit">
-        <button onclick="location.href='{% url 'edit' post.id %}'">수정하기</button>
+        <button onclick="location.href='{% url 'board:edit' post.id %}'">수정하기</button>
     </div>
     {% endif %}
-    <button onclick="location.href='{% url 'board' %}'">홈으로</button>
+    <button onclick="location.href='{% url 'board:board' %}'">홈으로</button>
 </body>
 
 </html>

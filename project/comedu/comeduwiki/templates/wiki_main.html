@@ -17,7 +17,7 @@
 
 <body>
     <h2>Com Edu Wiki!<h2>
-    <button onclick="location.href='{% url 'newwiki' %}'">글쓰기</button>
+    <button onclick="location.href='{% url 'wiki:newwiki' %}'">글쓰기</button>
     <table>
     <tr>
         <td>title</td>
@@ -25,7 +25,7 @@
     </tr>
     {% for wiki in wiki.all %}
     <tr>
-        <td onClick = "location.href='{% url 'detail' wiki.id %}'">{{ wiki.title }}</td>
+        <td onClick = "location.href='{% url 'wiki:detail' wiki.id %}'">{{ wiki.title }}</td>
         <td>{{ wiki.onlyMonthDay }}</td>
     </tr>
     {% endfor %}

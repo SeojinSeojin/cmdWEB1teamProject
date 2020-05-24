@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+app_name = "wiki"
+
 urlpatterns = [
     path('', views.wiki_main, name='wiki'),
     path('<int:wiki_id>', views.wiki_detail, name='detail'),

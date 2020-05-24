@@ -24,7 +24,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', board.views.main, name='main'),
-    path('board/', include('board.urls')),
-    path('wiki/', include('comeduwiki.urls')),
+    path('board/', include('board.urls', namespace='board')),
+    path('wiki/', include('comeduwiki.urls', namespace='wiki')),
+    path('users/', include('users.urls', namespace='users')),
     path('graduate/', include('graduate.urls')),
 ]

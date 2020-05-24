@@ -14,10 +14,14 @@
     }
     </style>
 </head>
-
+<header>
+    {% if user.is_authenticated %} <li><a href="{% url 'users:logout'%}">Log out</a></li>
+    {% else %} <li><a href="{% url 'users:login' %}">Log in</a></li>
+    {% endif %}
+</header>
 <body>
     <h2>Com Edu Board!<h2>
-    <button onclick="location.href='{% url 'newPost' %}'">글쓰기</button>
+    <button onclick="location.href='{% url 'board:newPost' %}'">글쓰기</button>
     <table>
     <tr>
         <td>title</td>
@@ -25,7 +29,7 @@
     </tr>
     {% for post in posts.all %}
     <tr>
-        <td onClick = "location.href='{% url 'detail' post.id %}'">{{ post.title }}</td>
+        <td onClick="location.href='{% url 'board:detail' post.id %}'">{{ post.title }}</td>
         <td>{{ post.onlyMonthDay }}</td>
     </tr>
     {% endfor %}
