@@ -27,5 +27,5 @@ urlpatterns = [
     path('board/', include('board.urls', namespace='board')),
     path('wiki/', include('comeduwiki.urls', namespace='wiki')),
     path('users/', include('users.urls', namespace='users')),
-    path('graduate/', include('graduate.urls')),
+    path('graduate/', include('graduate.urls', namespace='graduate')),
 ]

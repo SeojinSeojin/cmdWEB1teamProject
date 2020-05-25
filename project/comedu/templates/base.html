@@ -10,6 +10,7 @@
     <header>
         <li><a href="{% url 'board:board' %}">Board</a></li>
         <li><a href="{% url 'wiki:wiki' %}">Wiki</a></li>
+        <li><a href="{% url 'graduate:grad_index' %}">Graduate</a></li>
         {% if user.is_authenticated %} 
             <li><a href="{% url 'users:logout'%}">Log out</a></li>
         {% else %} 
