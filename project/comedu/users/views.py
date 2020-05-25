@@ -24,3 +24,19 @@ def log_in(request):
 def log_out(request):
     logout(request)
     return redirect(reverse("main"))
+
+
+def sign_up(request):
+    if request.method == "GET":
+        form = forms.SignUpForm
+        return render(request, "signup.html", {"form": form})
+    if request.method == "POST":
+        form = forms.SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get("username")
+            password = form.cleaned_data.get("password")
+            user = authenticate(request, username=username, password=password)
+            login(request, user)
+            return redirect(reverse("main"))
+    return render(request, "signup.html", {"form": form})

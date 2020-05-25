@@ -1,0 +1,16 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+</head>
+
+<body>
+    <form method="POST" action="{% url 'users:signup' %}">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>Sign up</button>
+    </form>
+</body>
+
+</html>
