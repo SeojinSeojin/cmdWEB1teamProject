@@ -9,8 +9,8 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
-#admin ID : comedu
-#admin PW : 1234
+# admin ID : comedu
+# admin PW : 1234
 
 
 import os
@@ -28,7 +28,7 @@ SECRET_KEY = 'zofca1%us=k(^ywn*@wz94_58js0ouab=#g5*un7!&eq46j!01'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -62,7 +62,7 @@ ROOT_URLCONF = 'comedu.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,3 +129,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)

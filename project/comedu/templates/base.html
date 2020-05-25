@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title> {% block title %} {% endblock title %} </title>
+    <link rel="stylesheet" href="{% static 'layout/style.css' %}">
+</head>
+
+<body>
+    <header>
+        <li><a href="{% url 'board:board' %}">Board</a></li>
+        <li><a href="{% url 'wiki:wiki' %}">Wiki</a></li>
+        {% if user.is_authenticated %} 
+            <li><a href="{% url 'users:logout'%}">Log out</a></li>
+        {% else %} 
+            <li><a href="{% url 'users:login' %}">Log in</a></li>
+            <li><a href="{% url 'users:signup' %}">Sign up</a></li>
+        {% endif %}
+        
+    </header>
+
+    {% block content %}{% endblock content %}
+
+</body>

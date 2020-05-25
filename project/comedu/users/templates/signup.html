@@ -1,16 +1,13 @@
-<html>
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Sign up</title>
-</head>
+{% block title %}
+    Sign up
+{% endblock title %}
 
-<body>
+{% block content %}
     <form method="POST" action="{% url 'users:signup' %}">
         {% csrf_token %}
         {{form.as_p}}
         <button>Sign up</button>
     </form>
-</body>
-
-</html>
+{% endblock content %}

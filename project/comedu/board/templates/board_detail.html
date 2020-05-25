@@ -1,11 +1,11 @@
-<html>
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Board - {{post.title}}</title>
-</head>
+{% block title %}
+    Board - {{post.title}}
+{% endblock title %}
 
-<body>
+{% block content %}
+
     <div>
         <h1>{{post.title}}</h1>
     <div>
@@ -23,6 +23,5 @@
     </div>
     {% endif %}
     <button onclick="location.href='{% url 'board:board' %}'">홈으로</button>
-</body>
 
-</html>
+{% endblock content %}

@@ -1,30 +1,18 @@
-<html>
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>ComEdu Board</title>
-    <style>
-    table{
-        width:80%;   
-    }
-    td{
-        border:2px solid black;
-        height:50px;
-        font-size:25px;
-    }
-    </style>
-</head>
-<header>
-    {% if user.is_authenticated %} <li><a href="{% url 'users:logout'%}">Log out</a></li>
-    {% else %} 
-    <li><a href="{% url 'users:login' %}">Log in</a></li>
-    <li><a href="{% url "users:signup" %}">Sign up</a></li>
-    {% endif %}
-</header>
-<body>
+{% block title %}
+    ComEdu Board
+{% endblock title %}
+
+{% block content %}
+
     <h2>Com Edu Board!<h2>
+    {% if user.is_authenticated %} 
     <button onclick="location.href='{% url 'board:newPost' %}'">글쓰기</button>
-    <table>
+    {% else %}
+    <button onclick="location.href='{% url 'users:login' %}'">글쓰기</button>
+    {% endif %}
+    <table style="width:80%;">
     <tr>
         <td>title</td>
         <td>date</td>
@@ -36,6 +24,5 @@
     </tr>
     {% endfor %}
     </table>
-</body>
 
-</html>
+{% endblock content %}

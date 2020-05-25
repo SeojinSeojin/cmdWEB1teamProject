@@ -1,23 +1,17 @@
-<html>
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>ComEdu Wiki</title>
-    <style>
-    table{
-        width:80%;   
-    }
-    td{
-        border:2px solid black;
-        height:50px;
-        font-size:25px;
-    }
-    </style>
-</head>
+{% block title %}
+    ComEdu Wiki
+{% endblock title %}
 
-<body>
+{% block content %}
+
     <h2>Com Edu Wiki!<h2>
+    {% if user.is_authenticated %} 
     <button onclick="location.href='{% url 'wiki:newwiki' %}'">글쓰기</button>
+    {% else %}
+    <button onclick="location.href='{% url 'users:login' %}'">글쓰기</button>
+    {% endif %}
     <table>
     <tr>
         <td>title</td>
@@ -32,4 +26,4 @@
     </table>
 </body>
 
-</html>
+{% endblock content %}

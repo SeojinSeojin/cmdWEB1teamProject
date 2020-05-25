@@ -1,16 +1,15 @@
-<html>
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Log In</title>
-</head>
+{% block title %}
+    Log In
+{% endblock title %}
 
-<body>
+{% block content %}
+
     <form method="POST" action="{% url 'users:login' %}">
         {% csrf_token %}
         {{form.as_p}}
         <button>Login</button>
     </form>
-</body>
-
-</html>
+    
+{% endblock content %}

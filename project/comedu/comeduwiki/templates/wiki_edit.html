@@ -1,22 +1,23 @@
-<html>
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>ComEdu Board - Update</title>
-</head>
+{% block title %}
+    ComEdu Wiki - Update
+{% endblock title %}
 
-<div class="new_title">
-    <h4>제목</h4>
-    {{wiki.title}}
-</div>
-<form method="post" action='{% url "wiki:update" wiki.id %}'>
-    {% csrf_token %}
-    <div class="new_text">
-        <h4>본문</h4>
-        <textarea name='text' placeholder='내용'>{{wiki.text}}</textarea>
+{% block content %}
+
+    <div class="new_title">
+        <h4>제목</h4>
+        {{wiki.title}}
     </div>
+    <form method="post" action='{% url "wiki:update" wiki.id %}'>
+        {% csrf_token %}
+        <div class="new_text">
+            <h4>본문</h4>
+            <textarea name='text' placeholder='내용'>{{wiki.text}}</textarea>
+        </div>
 
-    <input type="submit" value="수정하기">
-</form>
+        <input type="submit" value="수정하기">
+    </form>
 
-</html>
+{% endblock content %}
