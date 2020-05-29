@@ -1,25 +1,47 @@
 <!DOCTYPE html>
 {% load static %}
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> {% block title %} {% endblock title %} </title>
     <link rel="stylesheet" href="{% static 'layout/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 </head>
 
 <body>
-    <header>
-        <li><a href="{% url 'board:board' %}">Board</a></li>
-        <li><a href="{% url 'wiki:wiki' %}">Wiki</a></li>
-        <li><a href="{% url 'graduate:grad_index' %}">Graduate</a></li>
-        {% if user.is_authenticated %} 
-            <li><a href="{% url 'users:logout'%}">Log out</a></li>
-        {% else %} 
-            <li><a href="{% url 'users:login' %}">Log in</a></li>
-            <li><a href="{% url 'users:signup' %}">Sign up</a></li>
-        {% endif %}
-        
-    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 bg-primary" style="margin-top: 50px;margin-bottom : 10px">
+                <h1 class="text-uppercase text-center test-muted">TITLE</h1>
+            </div>
+        </div>
+    
+        <div class="row">
+            <ul class="nav nav-tabs">
+                <li><a href="{% url 'board:board' %}">Board</a></li>
+                <li><a href="{% url 'wiki:wiki' %}">Wiki</a></li>
+                <li><a href="{% url 'graduate:grad_index' %}">Graduate</a></li>
+                {% if user.is_authenticated %} 
+                    <li><a href="{% url 'users:logout'%}">Log out</a></li>
+                {% else %} 
+                    <li><a href="{% url 'users:login' %}">Log in</a></li>
+                    <li><a href="{% url 'users:signup' %}">Sign up</a></li>
+                {% endif %}
+            </ul> 
+        </div>
+            
 
-    {% block content %}{% endblock content %}
+        {% block content %}{% endblock content %}
 
+        <div class="row">
+            <div class="col-lg-12 bg-primary text-center">
+            <p>하단정보</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
+<!-- TODO : footer 및 기본 디자인 삽입 -->

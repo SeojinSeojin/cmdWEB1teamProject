@@ -3,3 +3,28 @@ td {
     height: 50px;
     font-size: 25px;
 }
+/*for bootstrap*/
+.row{
+margin-top: 10px;
+}
+.col-lg-4{
+padding:10px;
+margin:5px;
+}
+.bg-info{
+/* TODO : 다른거 있었는데 그거 반영*/
+padding:20px;
+margin:5px;
+}
+.bg-primary{
+height:80px;
+}
+.bg-warning{
+padding:10px;
+margin:15px;
+}
+.bg-danger{
+width: 162px;
+padding:10px;
+margin:15px;
+}

@@ -4,8 +4,8 @@ from . import models
 
 class LoginForm(forms.Form):
 
-    studentID = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    studentID = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control', 'id':'exampleInputId', 'placeholder':'학번을 입력하세요'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control', 'id':'exampleInputPassword1', 'placeholder':'암호를 입력하세요'}))
 
     def clean(self):
         studentID = self.cleaned_data.get("studentID")
