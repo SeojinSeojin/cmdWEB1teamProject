@@ -4,8 +4,14 @@ from . import models
 
 class LoginForm(forms.Form):
 
-    studentID = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control', 'id':'exampleInputId', 'placeholder':'학번을 입력하세요'}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control', 'id':'exampleInputPassword1', 'placeholder':'암호를 입력하세요'}))
+    studentID = forms.CharField(widget=forms.TextInput(attrs={\
+        'class':'form-control',\
+        'id':'exampleInputId',\
+        'placeholder':'학번을 입력하세요'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={\
+        'class':'form-control', \
+        'id':'exampleInputPassword1', \
+        'placeholder':'암호를 입력하세요'}))
 
     def clean(self):
         studentID = self.cleaned_data.get("studentID")
@@ -22,12 +28,21 @@ class LoginForm(forms.Form):
 
 
 class SignUpForm(forms.Form):
-    studentID = forms.CharField(max_length=10)
-    username = forms.CharField(max_length=20)
-    email = forms.EmailField()
-    password = forms.CharField(widget=forms.PasswordInput)
-    password1 = forms.CharField(
-        widget=forms.PasswordInput, label="Confirm Password")
+    studentID = forms.CharField(max_length=10, widget=forms.TextInput(attrs={\
+        'class':'form-control',\
+        'placeholder':'학번을 입력하세요'}))
+    username = forms.CharField(max_length=20, widget=forms.TextInput(attrs={\
+        'class':'form-control',\
+        'placeholder':'이름을 입력하세요'}))
+    email = forms.EmailField(widget=forms.TextInput(attrs={\
+        'class':'form-control',\
+        'placeholder':'이메일을 입력하세요'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={\
+        'class':'form-control',\
+        'placeholder':'암호를 입력하세요'}))
+    password1 = forms.CharField(\
+        widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'한번 더 입력하세요'}),\
+        label="Confirm Password")
 
     def clean_email(self):
         email = self.cleaned_data.get("email")
