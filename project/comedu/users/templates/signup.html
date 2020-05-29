@@ -12,15 +12,13 @@
             <h4><strong>회원가입</strong></h4>
         </div>
         <div class="row" style="padding: 20px;">
-            <form class="form-horizontal">
+            <form class="form-horizontal" method="POST" action="{% url 'users:signup' %}">
                 <div class="form-group">
-                    <form method="POST" action="{% url 'users:signup' %}">
-                        {% csrf_token %}
-                        {{form.as_p}}
-                        <div class="col-lg-offset-9 col-lg-3">
-                            <button type="submit" class="btn btn-default"style="width:100px;" >Sign in</button>
-                        </div>
-                    </form>
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <div class="col-lg-offset-9 col-lg-3">
+                        <button type="submit" class="btn btn-default"style="width:100px;" >Sign in</button>
+                    </div>
                 </div>
             </form>
         </div>
