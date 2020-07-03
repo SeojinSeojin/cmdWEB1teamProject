@@ -5,24 +5,36 @@
 {% endblock title %}
 
 {% block content %}
-
-    <h2>Com Edu Board!<h2>
     {% if user.is_authenticated %} 
-    <button onclick="location.href='{% url 'board:newPost' %}'">글쓰기</button>
+    <button
+        class="btn btn-default pull-left"
+        style="width:100px; margin-top: 15px;"
+        onclick="location.href='{% url 'board:newPost' %}'">
+        글쓰기
+    </button>
     {% else %}
-    <button onclick="location.href='{% url 'users:login' %}'">글쓰기</button>
+    <button
+        class="btn btn-default pull-left"
+        style="width:100px; margin-top: 15px;"
+        onclick="location.href='{% url 'users:login' %}'">
+        로그인
+    </button>
     {% endif %}
-    <table style="width:80%;">
-    <tr>
-        <td>title</td>
-        <td>date</td>
-    </tr>
-    {% for post in posts.all %}
-    <tr>
-        <td onClick="location.href='{% url 'board:detail' post.id %}'">{{ post.title }}</td>
-        <td>{{ post.onlyMonthDay }}</td>
-    </tr>
-    {% endfor %}
+    <table class="table table-condensed table-bordered">
+        <tr>
+            <td>id</td>
+            <td>title</td>
+            <td>date</td>
+            <td>writer</td>
+        </tr>
+        {% for post in posts.all %}
+        <tr>
+            <td>{{post.id}}</td>
+            <td onClick="location.href='{% url 'board:detail' post.id %}'">{{ post.title }}</td>
+            <td>{{ post.onlyMonthDay }}</td>
+            <td>{{ post.writer }}</td>
+        </tr>
+        {% endfor %}
     </table>
 
 {% endblock content %}

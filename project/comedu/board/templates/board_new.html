@@ -7,8 +7,54 @@
 {% block content %}
 
     <form action='{% url "board:create"%}'>
+        <div class="col-md-7">
+            <div class="row" style="padding: 20px;">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                      <label for="inputTitle" class="col-lg-2 control-label">제목</label>
+                      <div class="col-lg-9">
+                        <input name="title" class="form-control" id="inputTitle" placeholder="제목을 입력하세요"style="width:100%;">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputContent" class="col-lg-2 control-label">글 내용</label>
+                      <div class="col-lg-9">
+                        <textarea name="text" class="form-control" id="inputContent" placeholder="글 내용을 입력하세요"style="width:100%;"></textarea>
+                      </div>
+                    </div>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+						<label class="btn btn-primary">
+							<input type="radio" name="genre" value='C'> C
+						</label>
+						<label class="btn btn-primary">
+							<input type="radio" name="genre" value='C++'> C++
+						</label>
+						<label class="btn btn-primary">
+							<input type="radio" name="genre" value='Python'> Python
+                        </label>
+                        <label class="btn btn-primary">
+							<input type="radio" name="genre" value='Javascript'> Javascript
+						</label>
+						<label class="btn btn-primary">
+							<input type="radio" name="genre" value='R'> R
+						</label>
+						<label class="btn btn-primary">
+							<input type="radio" name="genre" value='Others'> Others
+                        </label>
+                        <label class="btn btn-primary">
+							<input type="radio" name="genre" value='Text'> Text
+                        </label>
+					</div>
+                    <div class="form-group">
+                        <button type="submit" value='업로드하기' >글 등록</button>
+                      </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </form>
 
-        <div class="new_title">
+        <!-- <div class="new_title">
             <h4>제목</h4>
             <input type="text" name='title' placeholder='제목'>
         </div>
@@ -29,6 +75,6 @@
         </div>
 
         <input type="submit" value="업로드하기">
-    </form>
+    </form> -->
 
 {% endblock content %}
