@@ -1,29 +1,57 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    ComEdu Wiki
+ComEdu Wiki
 {% endblock title %}
 
 {% block content %}
+<div class="row" style="background-color: powderblue;padding-left:20px;">
+    <h4>COMEDU WIKI</h4>
+</div>
+<div class="col-md-8">
+    <div class="row" style="background-color: #EAEAEA;padding: 20px;margin-bottom: 40px;">
+        <div class="form-group">
+            <label for="inputSearch" class="col-lg-2 control-label">검색</label>
+            <div class="col-lg-10">
+                <input type="search" class="form-control" id="inputSearch" placeholder="검색어를 입력하세요">
+            </div>
+        </div>
+        {% if user.is_authenticated %}
+        <button class="btn btn-default pull-left" style="width:100px; margin-top: 5px;"
+            onclick="location.href='{% url 'wiki:newwiki' %}'">
+            글쓰기
+        </button>
+        {% else %}
+        <button class="btn btn-default pull-left" style="width:100px; margin-top: 5px;"
+            onclick="location.href='{% url 'users:login' %}'">
+            글쓰기
+        </button>
+        {% endif %}
+    </div>
+</div>
 
-    <h2>Com Edu Wiki!<h2>
-    {% if user.is_authenticated %} 
-    <button onclick="location.href='{% url 'wiki:newwiki' %}'">글쓰기</button>
-    {% else %}
-    <button onclick="location.href='{% url 'users:login' %}'">글쓰기</button>
-    {% endif %}
-    <table>
-    <tr>
-        <td>title</td>
-        <td>last-updateddate</td>
-    </tr>
-    {% for wiki in wiki.all %}
-    <tr>
-        <td onClick = "location.href='{% url 'wiki:detail' wiki.id %}'">{{ wiki.title }}</td>
-        <td>{{ wiki.onlyMonthDay }}</td>
-    </tr>
-    {% endfor %}
-    </table>
+<div class="col-md-4">
+    <h5><strong>Wiki List</strong></h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>제목</td>
+                    <th>수정일자</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for wiki in wiki.all %}
+                <tr>
+                    <td style='font-size:small;' onClick="location.href='{% url 'wiki:detail' wiki.id %}'">
+                        {{ wiki.title }}</td>
+                    <td style='font-size:small;'>{{ wiki.onlyMonthDay }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+
+
 </body>
 
 {% endblock content %}

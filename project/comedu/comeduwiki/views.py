@@ -17,7 +17,7 @@ def wiki_main(req):
 
 def wiki_detail(req, wiki_id):
     blog_detail = get_object_or_404(Wiki, pk=wiki_id)
-    return render(req, 'wiki_detail.html', {'wiki': blog_detail})
+    return render(req, 'wiki_detail.html', {'wiki': blog_detail, 'wiki_list':Wiki.objects})
 
 ### 글쓰기 창을 띄우는 페이지 ###
 
