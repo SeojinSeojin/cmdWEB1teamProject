@@ -1,40 +1,57 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    ComEdu Board
+ComEdu Board
 {% endblock title %}
 
 {% block content %}
-    {% if user.is_authenticated %} 
-    <button
-        class="btn btn-default pull-left"
-        style="width:100px; margin-top: 15px;"
+<div class="row">
+    {% if user.is_authenticated %}
+    <button class="btn btn-default pull-left" style="width:100px; margin-top: 15px;"
         onclick="location.href='{% url 'board:newPost' %}'">
         글쓰기
     </button>
     {% else %}
-    <button
-        class="btn btn-default pull-left"
-        style="width:100px; margin-top: 15px;"
+    <button class="btn btn-default pull-left" style="width:100px; margin-top: 15px;"
         onclick="location.href='{% url 'users:login' %}'">
         로그인
     </button>
     {% endif %}
-    <table class="table table-condensed table-bordered">
-        <tr>
-            <td>id</td>
-            <td>title</td>
-            <td>date</td>
-            <td>writer</td>
-        </tr>
-        {% for post in posts.all %}
-        <tr>
-            <td>{{post.id}}</td>
-            <td onClick="location.href='{% url 'board:detail' post.id %}'">{{ post.title }}</td>
-            <td>{{ post.onlyMonthDay }}</td>
-            <td>{{ post.writer }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <div class="row">
+            <h4 style="padding-left:20px;padding-bottom:5px;">
+                QNA
+            </h4>
+        </div>
+        <ul class="nav nav-pills nav-stacked">
+            <li roles="presentation" class="active"><a href="#">C</a></li>
+            <li roles="presentation"><a href="#">JS</a></li>
+            <li roles="presentation"><a href="#">py</a></li>
+            <li roles="presentation"><a href="#">else</a></li>
+        </ul>
+
+    </div>
+    <div class="col-md-9">
+        <table class="table table-condensed table-bordered">
+            <tr>
+                <td>id</td>
+                <td>title</td>
+                <td>date</td>
+                <td>writer</td>
+            </tr>
+            {% for post in posts.all %}
+            <tr>
+                <td>{{post.id}}</td>
+                <td onClick="location.href='{% url 'board:detail' post.id %}'">{{ post.title }}</td>
+                <td>{{ post.onlyMonthDay }}</td>
+                <td>{{ post.writer }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
 
 {% endblock content %}

@@ -1,47 +1,85 @@
 <!DOCTYPE html>
 {% load static %}
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> {% block title %} {% endblock title %} </title>
     <link rel="stylesheet" href="{% static 'layout/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="shortcut icon" href="{%static 'favicon.ico'%}" type="image/x-icon">
+    <style>
+        body{
+            font-family:'Gaegu', cursive;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
             <div class="col-lg-12 bg-primary" style="margin-top: 50px;margin-bottom : 10px">
-                <h1 class="text-uppercase text-center test-muted">TITLE</h1>
+                <h1 class="text-center test-muted">컴교홈피</h1>
             </div>
         </div>
-    
+
         <div class="row">
             <ul class="nav nav-tabs">
                 <li><a href="{% url 'board:board' %}">Board</a></li>
                 <li><a href="{% url 'wiki:wiki' %}">Wiki</a></li>
                 <li><a href="{% url 'graduate:grad_index' %}">Graduate</a></li>
-                {% if user.is_authenticated %} 
-                    <li><a href="{% url 'users:logout'%}">Log out</a></li>
-                {% else %} 
-                    <li><a href="{% url 'users:login' %}">Log in</a></li>
-                    <li><a href="{% url 'users:signup' %}">Sign up</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'users:logout'%}">Log out</a></li>
+                {% else %}
+                <li><a href="{% url 'users:login' %}">Log in</a></li>
+                <li><a href="{% url 'users:signup' %}">Sign up</a></li>
                 {% endif %}
-            </ul> 
+            </ul>
         </div>
-            
-
-        {% block content %}{% endblock content %}
-
-        <div class="row">
-            <div class="col-lg-12 bg-primary text-center">
-            <p>하단정보</p>
+        {% block content %}
+        {% endblock content %}
+        <div class="footer">
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">컴교홈피 Developers</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>강혜린 : 부트스트랩 디자인</p>
+                            <p>김서진 : 인증 / board / wiki</p>
+                            <p>정지윤 : 장고세팅 / 졸업요건 계산기</p>
+                            <p>강준우 : 합치기 작업</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 bg-primary">
+                <a href="/" style='color: whitesmoke;'>Main Page</a>&nbsp;|&nbsp;
+                <a href="https://github.com/SeojinSeojin/cmdWEB1teamProject"
+                    style='color: whitesmoke;'>Github</a>&nbsp;|&nbsp;
+                <a href="#" data-toggle="modal" data-target="#exampleModal"
+                    style='color: whitesmoke;'>Developers</a>&nbsp;|&nbsp;
+                <br>
+                &copy;
+                <script>document.write(new Date().getFullYear())</script>
+                made by cmd web team 1
             </div>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
-<!-- TODO : footer 및 기본 디자인 삽입 -->
+
+</html>

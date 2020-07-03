@@ -1,27 +1,44 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Board - {{post.title}}
+Board - {{post.title}}
 {% endblock title %}
 
 {% block content %}
+<div class="row">
+    <div class="col-md-2">
+        <div class="row">
+            <h4 style="padding-left:20px;padding-bottom:5px;">
+                QNA
+            </h4>
+        </div>
+        <ul class="nav nav-pills nav-stacked">
+            <li roles="presentation" class="active"><a href="#">C</a></li>
+            <li roles="presentation"><a href="#">JS</a></li>
+            <li roles="presentation"><a href="#">py</a></li>
+            <li roles="presentation"><a href="#">else</a></li>
+        </ul>
 
+    </div>
     <div>
         <h1>{{post.title}}</h1>
-    <div>
-    <div>작성 일자 : {{post.pub_date}}</div>
-    <div>작성자 {{post.writer}}</div>
-    <div>{{post.genre}}</div>
-    <div>{{post.text}}</div>
-
-    {% if post.writer == user %}
-    <div class="delete">
-        <button onclick="location.href='{% url 'board:delete' post.id %}'">삭제하기</button>
+        <div>
+            <div>작성 일자 : {{post.pub_date}}</div>
+            <div>작성자 {{post.writer}}</div>
+            <div>{{post.genre}}</div>
+            <div>{{post.text}}</div>
+    
+            {% if post.writer == user %}
+            <div class="delete">
+                <button onclick="location.href='{% url 'board:delete' post.id %}'">삭제하기</button>
+            </div>
+            <div class="edit">
+                <button onclick="location.href='{% url 'board:edit' post.id %}'">수정하기</button>
+            </div>
+            {% endif %}
+            <button onclick="location.href='{% url 'board:board' %}'">홈으로</button>
+        </div>
     </div>
-    <div class="edit">
-        <button onclick="location.href='{% url 'board:edit' post.id %}'">수정하기</button>
-    </div>
-    {% endif %}
-    <button onclick="location.href='{% url 'board:board' %}'">홈으로</button>
+</div>
 
 {% endblock content %}
