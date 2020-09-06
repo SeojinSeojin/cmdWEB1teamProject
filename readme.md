@@ -5,7 +5,7 @@
 |                                          nihreyh                                          |                                           JiYun                                           |
 | :---------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------: |
 | <img src="https://avatars3.githubusercontent.com/u/61745144?s=400&v=4" width="30%"></img> | <img src="https://avatars3.githubusercontent.com/u/47270758?s=400&v=4" width="30%"></img> |
-|                                https://github.com/nihreyh                                 |                                 https://github.com/JiYun                                  |
+|                                https://github.com/nihreyh                                 |                                 https://github.com/J2yun                                  |
 |                                      Main Front-End                                       |                                       Main Back-End                                       |
 
 |                                                             SeojinSeojin                                                             |                                        KangJunewoo                                        |
